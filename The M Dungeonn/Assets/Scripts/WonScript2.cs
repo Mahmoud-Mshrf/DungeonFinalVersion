@@ -20,10 +20,10 @@ public class WonScript2 : MonoBehaviour
             gameObject.SetActive(false);
             finishSoundEffect.Play();
             Invoke("LoadCompletePanel", 2);
-            Invoke("LoadNextLevel", 4);
+            Invoke("LoadMainMenu", 6);
         }
     }
-    public void LoadNextLevel()
+    public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);// this make it load the next scene 
     }
