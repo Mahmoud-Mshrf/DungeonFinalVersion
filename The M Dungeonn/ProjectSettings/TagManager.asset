@@ -9,6 +9,7 @@ TagManager:
   - EndOfLevel
   - KILLFloor
   - Axe
+  - ManEnemy
   layers:
   - Default
   - TransparentFX

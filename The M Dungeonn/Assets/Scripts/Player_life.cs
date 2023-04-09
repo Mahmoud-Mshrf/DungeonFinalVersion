@@ -5,12 +5,14 @@ public class Player_life : MonoBehaviour
 {
     private int startingLives = 3; // Starting number of lives
     [SerializeField] private Text LivesText;
-    private int currentLives; // Current number of lives
+    public int currentLives; // Current number of lives
     private Rigidbody2D rb;
     private Animator anim;
     [SerializeField] private AudioSource DeathSoundEffect;
     [SerializeField] GameObject[] Axes;
-    
+    [SerializeField] BoxCollider2D boxCollider1;
+    [SerializeField] BoxCollider2D boxCollider2;
+
 
     void Start()
     {
@@ -31,7 +33,7 @@ public class Player_life : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Trap")) // Check if collision is with a trap
+        if (collision.gameObject.CompareTag("Trap")|| (collision.gameObject.CompareTag("ManEnemy")&& (collision.collider==boxCollider1 || collision.collider == boxCollider2))) // Check if collision is with a trap
         {
             currentLives--; // Subtract one from current lives
             LivesText.text = "LIVES: " + currentLives;
